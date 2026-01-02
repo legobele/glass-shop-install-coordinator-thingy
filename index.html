@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+  Date.prototype.toLocaleDateString = function() {
+    return this.toISOString().split('T')[0];
+  };
+</script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -252,7 +257,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>🪟 glass installation coordinator</h1>
+        <h1>Quality Glazing Contractors </h1>
+        <h1>Installation Coordinator</h1>
 
         <div class="stats">
             <div class="stat-card">
@@ -337,7 +343,7 @@
                     <select id="filterDate" onchange="filterInstallations()">
                         <option value="all">all installations</option>
                         <option value="upcoming">upcoming only</option>
-                        <option value="today">today</option>
+                        <option value="today">today</option> // ESTO NO FUNCIONA!!!! IDK PQ LOS DATES SE VAN POR 1 DIA
                         <option value="week">this week</option>
                         <option value="month">this month</option>
                     </select>
