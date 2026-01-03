@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <script>
+  function getCompanyName() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('company') || 'Default Glass Shop';
+  }
+
+
+  const companyName = getCompanyName();
+</script>
+<script>
   Date.prototype.toLocaleDateString = function() {
     return this.toISOString().split('T')[0];
   };
 </script>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>installation coordinator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Installation Coordinator</title>
+    <script>
+      // run immediately to avoid flash of wrong content
+      const params = new URLSearchParams(window.location.search);
+      const appName = params.get('app') || 'Installation Coordinator';
+      document.title = appName;
+    </script>
     <style>
         * {
             margin: 0;
@@ -256,9 +271,14 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Quality Glazing Contractors </h1>
-        <h1>Installation Coordinator</h1>
+  <div class="container">
+    <h1 id="company-name">Quality Glazing Contractors Installation Coordinator</h1>
+  
+  <script>
+    // update company name immediately
+    const companyName = new URLSearchParams(window.location.search).get('company') || 'Quality Glazing Contractors';
+    document.getElementById('company-name').textContent = companyName;
+  </script>
 
         <div class="stats">
             <div class="stat-card">
