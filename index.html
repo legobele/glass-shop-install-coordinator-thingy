@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<script>
-  function getCompanyName() {
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Installation Coordinator</title>
+  <script>
+    // set title immediately
     const params = new URLSearchParams(window.location.search);
-    return params.get('company') || 'Default Glass Shop';
-  }
-
-
-  const companyName = getCompanyName();
-</script>
-<script>
-  Date.prototype.toLocaleDateString = function() {
-    return this.toISOString().split('T')[0];
-  };
-</script>
+    const appName = params.get('app') || 'Installation Coordinator';
+    document.title = appName;
+  </script>
+  <script>
+    // date fix
+    Date.prototype.toLocaleDateString = function() {
+      return this.toISOString().split('T')[0];
+    };
+  </script>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -272,13 +274,14 @@
 </head>
 <body>
   <div class="container">
-    <h1 id="company-name">Quality Glazing Contractors Installation Coordinator</h1>
+    <h1 id="company-name">Quality Glazing Contractors</h1>
   
-  <script>
-    // update company name immediately
-    const companyName = new URLSearchParams(window.location.search).get('company') || 'Quality Glazing Contractors';
-    document.getElementById('company-name').textContent = companyName;
-  </script>
+    <script>
+      // THIS runs immediately after the h1 exists
+      const params = new URLSearchParams(window.location.search);
+      const companyName = params.get('company') || 'Quality Glazing Contractors';
+      document.getElementById('company-name').textContent = companyName;
+    </script>
 
         <div class="stats">
             <div class="stat-card">
